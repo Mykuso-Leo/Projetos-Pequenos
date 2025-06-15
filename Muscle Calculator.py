@@ -29,10 +29,10 @@ while True:
         "Para calcular quanto você deve colocar de cada lado, insira - M\n"
         "Para calcular quanto de peso tem no total, insira - T\n"
         "Para calcular qual o volume da série, insira - V\n"
-        "Para reinicar, insira - R"
+        "Para sair, insira - S"
         )
     Calculo = input().upper()
-    if Calculo == 'R':
+    if Calculo == 'S':
         break
 
     result = Calculos("PesoT", "PesoM", "Reps", Calculo)
