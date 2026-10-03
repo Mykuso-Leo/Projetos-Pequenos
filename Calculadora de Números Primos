@@ -1,1 +1,40 @@
+# Calculadora de numeros primos
+# O usuário vai selecionar um número e o programa vai ir calculando os números primos até lá
+# Quando o programa terminar de executar ele vai perguntar se o usuário quer calcular mais números
 
+primo = 3
+
+def calc_n_primo(primo, divisor, intounao):
+    print("2 é primo;")
+    print("3 é primo;")
+    divisor = primo
+    while primo <= n:
+        primo += 1
+        
+        intounao = primo / divisor
+        if isinstance (intounao, int):
+            continue
+        elif not isinstance (intounao, int):
+            
+            continue
+
+
+
+    
+
+
+
+def voltar():
+
+
+while True:
+    print("Bem vindo à calculadora de números primos!")
+    print("Selecione até que número você quer calcular e direi quais números são primos.")
+    print("Por favor escolha números a partir do 10")
+    n = float(input())
+    if n < 10:
+        print ("Por favor, insira um número maior que 10")
+        n = float(input())
+        continue
+    else n >= 10:
+        calc_n_primo()
