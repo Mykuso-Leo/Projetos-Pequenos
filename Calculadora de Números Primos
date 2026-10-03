@@ -1,40 +1,93 @@
 # Calculadora de numeros primos
 # O usuário vai selecionar um número e o programa vai ir calculando os números primos até lá
 # Quando o programa terminar de executar ele vai perguntar se o usuário quer calcular mais números
+# Primeiro o usuário dá um número maior ou igual a 10
+# Então o programa começa o 4 por todos os números de 2 até 4 por
 
-primo = 3
+# número dado pelo usuário como até onde os primos devem ser calculados
+n = 0
 
-def calc_n_primo(primo, divisor, intounao):
-    print("2 é primo;")
-    print("3 é primo;")
-    divisor = primo
-    while primo <= n:
-        primo += 1
-        
-        intounao = primo / divisor
-        if isinstance (intounao, int):
-            continue
-        elif not isinstance (intounao, int):
-            
-            continue
+# número inicial que dita qual número está sendo testado se é inteiro ou nao
+primo = 5
 
+# número que começa no 2 e vai dividindo o primo até ser igual a ele
+divisor = 2
 
+# quociente da divisão do primo pelo divisor
+# se for inteiro, a variável primo não é primo, deve ser testado até ser igual a 1
+# quando int = 1 significa que o programa calculou até o final e o primo é primo
+intounao = 0
 
-    
+ultn = 10
 
+calculo = False
+bemvindo = True
+bemvindo2 = False
 
-
-def voltar():
-
-
-while True:
+while bemvindo == True:
+    bemvindo = False
     print("Bem vindo à calculadora de números primos!")
     print("Selecione até que número você quer calcular e direi quais números são primos.")
-    print("Por favor escolha números a partir do 10")
-    n = float(input())
+    print("Por favor escolha um número igual ou maior que 10:")
+    n = int(input())
     if n < 10:
-        print ("Por favor, insira um número maior que 10")
-        n = float(input())
+        bemvindo2 = True
         continue
-    else n >= 10:
-        calc_n_primo()
+    elif n >= 10:
+        print("2 é primo!")
+        print("3 é primo!")
+        calculo = True
+
+while bemvindo2 == True:
+    print ("Por favor, insira um número maior que 10:")
+    bemvindo2 = False
+    n = int(input())
+    if n < ultn:
+        bemvindo2 = True
+        continue
+    elif n >= ultn:
+        print("2 é primo!")
+        print("3 é primo!")
+        calculo = True
+
+def recomecar():
+    global n
+    global primo
+    global calculo
+    print("Insira um número maior que o anterior:")
+    primo = n + 1
+    n = int(input())
+    if n < ultn:
+        print("O número inserido é menor que o anterior")
+        print("Por favor insira um número maior que o anterior:")
+        n = int(input())
+        recomecar()
+    else:
+        calculo = True
+    # Para adicionar mais numeros a serem primos
+
+
+while calculo == True:
+    if primo <= n:
+        intounao = primo / divisor
+        if intounao == 1:
+            print(primo, " é primo!")
+            primo += 1
+            divisor = 2
+            continue
+        elif primo % divisor == 0:
+            primo += 1
+            divisor = 2
+            continue
+        elif primo % divisor != 0:
+            divisor += 1
+            continue
+    elif primo > n:
+        print(f"Esses são os números primos até {n}!")
+        print("Agora escolha mais números para que eu possa calcular")
+        primo = n + 1
+        divisor = 2
+        calculo = False
+        ultn = n
+        recomecar()
+
